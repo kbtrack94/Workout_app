@@ -9,13 +9,15 @@ workouts = [
         'title': 'Cardio Workout',
         'description': 'A high-intensity cardio routine',
         'duration': 30,
-        'difficulty': 'Intermediate'
+        'difficulty': 'Intermediate',
+        'type': 'cardio'
     },
     {
         'title': 'Strength Training',
         'description': 'Full-body strength training session',
         'duration': 45,
-        'difficulty': 'Advanced'
+        'difficulty': 'Advanced',
+        'type': 'strength'
     }
 ]
 
@@ -23,7 +25,11 @@ progress = []
 
 @app.route('/api/workouts', methods=['GET'])
 def get_workouts():
-    return jsonify(workouts)
+    workout_type = request.args.get('type')
+    filtered_workouts = workouts
+    if workout_type:
+        filtered_workouts = [workout for workout in workouts if workout['type'] == workout_type]
+    return jsonify(filtered_workouts)
 
 @app.route('/api/progress', methods=['GET'])
 def get_progress():

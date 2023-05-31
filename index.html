@@ -15,11 +15,18 @@
   </div>
   
   <div class="container">
+    <h2>Select a Workout Type</h2>
+    <select id="workoutType" onchange="filterWorkouts()">
+      <option value="">All Workouts</option>
+      <option value="cardio">Cardio</option>
+      <option value="strength">Strength Training</option>
+    </select>
+    
     <h2>Select a Workout</h2>
     <div id="workoutList"></div>
     
     <h2>Track Progress</h2>
-    <form id="trackForm">
+    <form id="trackForm" onsubmit="submitProgress(event)">
       <div class="form-group">
         <label class="label" for="exercise">Exercise:</label>
         <input class="input" type="text" id="exercise" name="exercise">

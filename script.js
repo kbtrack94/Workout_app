@@ -1,11 +1,12 @@
 // script.js
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Fetch and display workouts
+  // Initial fetch and display all workouts
   fetch('api/workouts')
     .then(response => response.json())
     .then(data => {
       const workoutList = document.getElementById('workoutList');
+      workoutList.innerHTML = "";
       data.forEach(workout => {
         const workoutItem = document.createElement('div');
         workoutItem.classList.add('workout-item');
@@ -19,10 +20,31 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
 
+  // Filter workouts based on workout type
+  function filterWorkouts() {
+    const workoutType = document.getElementById('workoutType').value;
+    fetch(`api/workouts?type=${workoutType}`)
+      .then(response => response.json())
+      .then(data => {
+        const workoutList = document.getElementById('workoutList');
+        workoutList.innerHTML = "";
+        data.forEach(workout => {
+          const workoutItem = document.createElement('div');
+          workoutItem.classList.add('workout-item');
+          workoutItem.innerHTML = `
+            <h2>${workout.title}</h2>
+            <p>${workout.description}</p>
+            <p>Duration: ${workout.duration} minutes</p>
+            <p>Difficulty: ${workout.difficulty}</p>
+          `;
+          workoutList.appendChild(workoutItem);
+        });
+      });
+  }
+
   // Track progress
-  const trackForm = document.getElementById('trackForm');
-  trackForm.addEventListener('submit', function(e) {
-    e.preventDefault();
+  function submitProgress(event) {
+    event.preventDefault();
     
     const exercise = document.getElementById('exercise').value;
     const sets = document.getElementById('sets').value;
@@ -40,13 +62,14 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(data => {
       // Handle response
     });
-  });
+  }
 
   // Fetch and display progress history
   fetch('api/progress')
     .then(response => response.json())
     .then(data => {
       const progressList = document.getElementById('progressList');
+      progressList.innerHTML = "";
       data.forEach(progress => {
         const progressItem = document.createElement('div');
         progressItem.classList.add('progress-item');
