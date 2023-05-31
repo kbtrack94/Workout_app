@@ -1,74 +1,65 @@
-/* styles.css */
-
 /* Global styles */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f2f2f2;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+  margin: 0;
+  padding: 0;
 }
 
 /* Header styles */
-.header {
+header {
   background-color: #333;
   color: #fff;
-  padding: 10px;
+  padding: 20px;
 }
 
-.header h1 {
+h1 {
   margin: 0;
 }
 
-/* Button styles */
-.button {
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
   display: inline-block;
-  padding: 10px 20px;
-  background-color: #4caf50;
+  margin-right: 10px;
+}
+
+nav ul li a {
   color: #fff;
   text-decoration: none;
-  border-radius: 5px;
 }
 
-/* Form styles */
-.form-group {
-  margin-bottom: 20px;
+/* Hero section styles */
+.hero {
+  background-image: url('path/to/hero-image.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  display: flex;
+  align-items: center;
 }
 
-.label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
+.hero-content {
+  text-align: center;
+  color: #fff;
 }
 
-.input {
-  padding: 10px;
-  width: 100%;
+/* Featured workouts section styles */
+.featured-workouts {
+  padding: 20px;
 }
 
-/* Workout styles */
-.workout-item {
-  background-color: #fff;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-}
-
-.workout-item h2 {
+.featured-workouts h2 {
   margin-top: 0;
 }
 
-.workout-item p {
-  margin: 0;
-}
-
-/* Progress styles */
-.progress-item {
-  background-color: #fff;
+/* Footer styles */
+footer {
+  background-color: #333;
+  color: #fff;
   padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
+  text-align: center;
 }

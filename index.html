@@ -1,49 +1,36 @@
-<!-- index.html -->
-
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Workout Tracker</title>
+  <title>Workout Library</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
-  <script src="script.js"></script>
 </head>
 <body>
-  <div class="header">
-    <div class="container">
-      <h1>Workout Tracker</h1>
-    </div>
-  </div>
+  <header>
+    <h1>Workout Library</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Workouts</a></li>
+        <li><a href="#">My Plans</a></li>
+        <li><a href="#">Log Workout</a></li>
+      </ul>
+    </nav>
+  </header>
   
-  <div class="container">
-    <h2>Select a Workout Type</h2>
-    <select id="workoutType" onchange="filterWorkouts()">
-      <option value="">All Workouts</option>
-      <option value="cardio">Cardio</option>
-      <option value="strength">Strength Training</option>
-    </select>
-    
-    <h2>Select a Workout</h2>
-    <div id="workoutList"></div>
-    
-    <h2>Track Progress</h2>
-    <form id="trackForm" onsubmit="submitProgress(event)">
-      <div class="form-group">
-        <label class="label" for="exercise">Exercise:</label>
-        <input class="input" type="text" id="exercise" name="exercise">
-      </div>
-      <div class="form-group">
-        <label class="label" for="sets">Sets:</label>
-        <input class="input" type="number" id="sets" name="sets">
-      </div>
-      <div class="form-group">
-        <label class="label" for="reps">Reps:</label>
-        <input class="input" type="number" id="reps" name="reps">
-      </div>
-      <button class="button" type="submit">Track</button>
-    </form>
-    
-    <h2>Progress History</h2>
-    <div id="progressList"></div>
-  </div>
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Welcome to the Workout Library</h2>
+      <p>Find the perfect workout plan and track your progress.</p>
+    </div>
+  </section>
+  
+  <section class="featured-workouts">
+    <h2>Featured Workouts</h2>
+    <!-- Display featured workouts here -->
+  </section>
+  
+  <footer>
+    <p>&copy; 2023 Workout Library. All rights reserved.</p>
+  </footer>
 </body>
 </html>
